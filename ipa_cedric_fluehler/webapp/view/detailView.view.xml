@@ -1,0 +1,25 @@
+<mvc:View 
+    xmlns:mvc="sap.ui.core.mvc" 
+    xmlns="sap.m" 
+    controllerName="workspacebookingns.ipacedricfluehler.controller.detailView" 
+    displayBlock="true">
+		
+        <App id="app">
+			<pages>
+                <Page id="page" title="">
+					<content>
+                        <HBox width="100%" id="hbox0_1619091014839">
+				            <items><Button xmlns="sap.m" text="Back" id="button1" type="Unstyled" class="" press="onBackPress"/>
+				            </items>
+				        </HBox>
+					    <HBox width="100%" id="hbox0" justifyContent="Center">
+				            <items>
+				                <Image xmlns="sap.m" src="img/floorplan-extended-transparent-bg.png" width="30cm" height="12cm" id="image0"/>
+				            </items>
+				        </HBox>
+                    </content>
+				</Page>
+			</pages>
+		</App>
+        
+</mvc:View>

@@ -4,13 +4,25 @@
     displayBlock="true"
     xmlns="sap.m"
 >
-	<Shell id="shell">
 		<App id="app">
 			<pages>
-				<Page id="page" title="{i18n>title}">
-					<content />
+				<Page id="page" title="">
+					<content>
+                        <HBox width="100%" id="hbox0" justifyContent="Center">
+				            <items>
+				                <Image xmlns="sap.m" src="img/floorplan-transparent-bg.png" width="30cm" height="12cm" id="image0"/>
+				            </items>
+				        </HBox>
+                        <!--Navigation Buttons-->
+				        <HBox width="100%" id="hbox0_1619091014839" justifyContent="SpaceAround">
+				            <items>
+				                <Button xmlns="sap.m" text="Book Workspace" id="button0" type="Unstyled" class="" press="onBookingPress"/>
+				                <Button xmlns="sap.m" text="Detailed View" id="button1" type="Unstyled" class="" press="onDetailPress"/>
+				            </items>
+				     </HBox>
+                    </content>
 				</Page>
 			</pages>
 		</App>
-	</Shell>
+        
 </mvc:View>
