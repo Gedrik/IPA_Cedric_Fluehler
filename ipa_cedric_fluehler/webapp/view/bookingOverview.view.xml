@@ -1,0 +1,58 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="workspacebookingns.ipacedricfluehler.controller.app" displayBlock="true">
+		<App id="app">
+			<pages>
+				<Page id="page" title="">
+					<content>
+				        <HBox width="100%" id="hbox2_1620395186583">
+				            <items>
+				                <HBox width="100%" id="hbox4_1620395212744">
+				                    <items>
+				                        <Button xmlns="sap.m" text="Back" id="backButton" press="onBackPress" class="backButton" type="Unstyled"/>
+				                    </items>
+				                </HBox>
+				            </items>
+				        </HBox>
+
+                        <HBox width="100%" id="hbox1" justifyContent="Center">
+				            <items>
+				                <Image src="https://ui5.sap.com/resources/sap/ui/documentation/sdk/images/logo_ui5.png" width="140px" height="140px" id="image0"/>
+				            </items>
+				        </HBox>
+
+				        <HBox width="100%" id="hbox0">
+				            <items>
+				                <Label text="Zone: get from temp data model " width="100%" id="label0" class="bookingText"/>
+				            </items>
+				        </HBox>
+
+				        <HBox width="100%" id="hbox3">
+				            <items>
+				                <Label text="Number of Persons: get from temp data model" width="100%" id="label1" class="bookingText"/>
+				            </items>
+				        </HBox>
+
+				        <HBox width="100%" id="hbox0_1621339197647">
+
+				            <items>
+                                <!--QR-Code image-->
+				                <HBox xmlns="sap.m" width="100%" id="hbox0_1621337577196">
+				                    <items>
+				                        <Image src="https://ui5.sap.com/resources/sap/ui/documentation/sdk/images/logo_ui5.png" width="140px" height="140px" id="image0_1621339222797"/>
+				                     </items>
+				                 </HBox>
+
+                                <!--Confirm button-->
+				                <HBox width="100%" id="hbox1_1621339203944" justifyContent="End">
+				                    <items>
+				                        <Button xmlns="sap.m" text="Comfirm Booking" id="confirmBtn" press="confirmPress" type="Unstyled" class="confirmButton"/>
+				                    </items>
+				                </HBox>
+				            </items>
+				        </HBox>
+                        
+                    </content>
+				</Page>
+			</pages>
+		</App>
+        
+</mvc:View>
