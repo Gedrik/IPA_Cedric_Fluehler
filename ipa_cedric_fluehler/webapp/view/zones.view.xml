@@ -1,0 +1,183 @@
+<mvc:View 
+    xmlns:mvc="sap.ui.core.mvc" 
+    xmlns="sap.m" 
+    controllerName="workspacebookingns.ipacedricfluehler.controller.zones" 
+    displayBlock="true">
+
+		<App id="app">
+			<pages>
+				<Page id="page" title="">
+					<content>
+                        <!--Back button-->
+                        <HBox width="100%" id="hbox0_1619680523098">
+				            <items>
+				                <Button xmlns="sap.m" text="Back" id="button0_1619680534662" press="onBackPress" class="backButton" type="Unstyled"/>
+				                <Input xmlns="sap.m" id="zoneInput" visible="false"/>
+				            </items>
+				        </HBox>
+                        <!--Container for Club plan-->
+					    <HBox width="100%" id="hbox0" justifyContent="Center">
+				            <items>
+				                <Image src="img/circleHalf.png" width="auto" height="auto" id="image0" class="sap"/>
+				            </items>
+				        </HBox>
+					    <HBox width="100%" id="hbox0_1617797198146" justifyContent="SpaceAround">
+				            <items>
+                                
+				                <VBox width="100%" direction="Column" id="vbox5">
+				                    <items>
+				                        <HBox width="100%" id="hbox3" justifyContent="SpaceAround">
+                                            <!--3 Buttons for dynamic view (Green, Orange, Red)-->
+				                            <items>
+				                                <Button xmlns="sap.m" text="Club 1" id="button1" type="Unstyled" class="greenButton" press="onZoneAPress" visible="false"/>
+				                                <Button xmlns="sap.m" text="Club 1" id="button2" type="Unstyled" class="orangeButton" press="onZoneAPress" visible="false"/>
+				                                <Button xmlns="sap.m" text="Club 1" id="button3" type="Unstyled" class="redButton" press="onZoneAPress" visible="false"/>
+				                            </items>
+				                        </HBox>
+                                        
+                                        <HBox width="100%" id="hbox1_1619178184403">
+                                            <items>
+                                            <!--Filter to only get values from Club 1-->
+                                                <HBox width="100%" id="hbox3_1619178210281" items="{path: '/Club',  filters: [{path: 'clubName',operator: 'EQ',value1: '1'}]}" justifyContent="SpaceAround">
+                                                    <items>
+                                                    <!--Display the currentlyFree value from Club 1-->
+                                                        <Label width="100%" id="label012" text="Free Places: {currentlyFree}"/>
+                                                    </items>
+                                                </HBox>
+                                            </items>
+				                        </HBox>
+
+				                        <HBox width="100%" id="hbox1_1619096177004" justifyContent="SpaceAround">
+                                            <!--3 Buttons for dynamic view (Green, Orange, Red)-->
+				                            <items>
+				                                <Button xmlns="sap.m" text="Club 5" id="button13" type="Unstyled" class="greenButton" press="onZoneAPress" visible="false"/>
+				                                <Button xmlns="sap.m" text="Club 5" id="button14" type="Unstyled" class="orangeButton" visible="false"/>
+				                                <Button xmlns="sap.m" text="Club 5" id="button15" type="Unstyled" class="redButton" press="onZoneAPress" visible="false"/>
+				                            </items>
+				                        </HBox>
+                                        <!--Filter to only get values from Club 5-->
+				                        <HBox width="100%" id="hbox2_1619096188573" justifyContent="SpaceAround" items="{path: '/Club',  filters: [{path: 'clubName',operator: 'EQ',value1: '5'}]}">
+				                            <items>
+                                                <!--Display the currentlyFree value from Club 5-->
+				                                <Label width="100%" id="label0" text="Free Places: {currentlyFree}"/>
+				                            </items>
+				                        </HBox>
+				                    </items>
+				                </VBox>
+				                <VBox width="100%" direction="Column" id="vbox6">
+				                    <items>
+                                        <HBox width="100%" id="hbox5" justifyContent="SpaceAround">
+                                            <!--3 Buttons for dynamic view (Green, Orange, Red)-->
+				                            <items>
+				                                <Button xmlns="sap.m" text="Club 2" id="button4" type="Unstyled" class="greenButton" press="onZoneAPress" visible="false"/>
+				                                <Button xmlns="sap.m" text="Club 2" id="button5" type="Unstyled" class="orangeButton" press="onZoneBPress" visible="false"/>
+				                                <Button xmlns="sap.m" text="Club 2" id="button6" type="Unstyled" class="redButton" press="onZoneAPress" visible="false"/>
+				                            </items>
+				                        </HBox>
+                                        <!--Filter to only get values from Club 2-->
+				                        <HBox width="100%" id="hbox6" justifyContent="SpaceAround" items="{path: '/Club',  filters: [{path: 'clubName',operator: 'EQ',value1: '2'}]}">
+				                            <items>
+                                                <!--Display the currentlyFree value from Club 2-->
+				                                <Label text="Free Places: {currentlyFree}" width="100%" id="label2"/>
+				                            </items>
+				                        </HBox>
+				                        <HBox width="100%" id="hbox3_1619096201380" justifyContent="SpaceAround">
+                                            <!--3 Buttons for dynamic view (Green, Orange, Red)-->
+				                            <items>
+				                                <Button xmlns="sap.m" text="Club 6" id="button16" type="Unstyled" class="greenButton" press="onZoneAPress" visible="false"/>
+				                                <Button xmlns="sap.m" text="Club 6" id="button17" type="Unstyled" class="orangeButton" visible="false"/>
+				                                <Button xmlns="sap.m" text="Club 6" id="button18" type="Unstyled" class="redButton" press="onZoneAPress" visible="false"/>
+				                            </items>
+				                        </HBox>
+                                        <!--Filter to only get values from Club 6-->
+				                        <HBox width="100%" id="hbox4_1619096206481" justifyContent="SpaceAround" items="{path: '/Club',  filters: [{path: 'clubName',operator: 'EQ',value1: '6'}]}">
+				                            <items>
+                                                <!--Display the currentlyFree value from Club 6-->
+				                                <Label text="Free Places: {currentlyFree}" width="100%" id="label1_1619096263841"/>
+				                            </items>
+				                        </HBox>
+				                    </items>
+				                </VBox>
+
+
+                                <VBox width="100%" direction="Column" id="vbox4">
+                                    <items>
+                                        <HBox width="100%" id="hbox7" justifyContent="SpaceAround">
+                                            <!--3 Buttons for dynamic view (Green, Orange, Red)-->
+                                            <items>
+                                                <Button xmlns="sap.m" text="Club 3" id="button7" type="Unstyled" class="greenButton" press="onZoneAPress" visible="false"/>
+                                                <Button xmlns="sap.m" text="Club 3" id="button8" type="Unstyled" class="orangeButton" press="onZoneCPress" visible="false"/>
+                                                <Button xmlns="sap.m" text="Club 3" id="button9" type="Unstyled" class="redButton" press="onZoneAPress" visible="false"/>
+                                            </items>
+                                        </HBox>
+                                        <!--Filter to only get values from Club 3-->
+                                        <HBox width="100%" id="hbox8" justifyContent="SpaceAround" items="{path: '/Club',  filters: [{path: 'clubName',operator: 'EQ',value1: '3'}]}">
+                                            <items>
+                                                <!--Display the currentlyFree value from Club 3-->
+                                                <Label text="Free Places: {currentlyFree}" width="100%" id="label1"/>
+                                            </items>
+                                        </HBox>
+                                        <HBox width="100%" id="hbox5_1619096211773" justifyContent="SpaceAround">
+                                            <!--3 Buttons for dynamic view (Green, Orange, Red)-->
+                                            <items>
+                                                <Button xmlns="sap.m" text="Club 7" id="button19" type="Unstyled" class="greenButton" press="onZoneAPress" visible="false"/>
+                                                <Button xmlns="sap.m" text="Club 7" id="button20" type="Unstyled" class="orangeButton" visible="false"/>
+                                                <Button xmlns="sap.m" text="Club 7" id="button21" type="Unstyled" class="redButton" press="onZoneAPress" visible="false"/>
+                                            </items>
+                                        </HBox>
+                                        <!--Filter to only get values from Club 7-->
+                                        <HBox width="100%" id="hbox6_1619096215613" justifyContent="SpaceAround" items="{path: '/Club',  filters: [{path: 'clubName',operator: 'EQ',value1: '7'}]}">
+                                            <items>
+                                                <!--Display the currentlyFree value from Club 7-->
+                                                <Label text="Free Places: {currentlyFree}" width="100%" id="label2_1619096266028"/>
+                                            </items>
+                                        </HBox>
+                                    </items>
+				                </VBox>
+
+				                <VBox width="100%" direction="Column" id="vbox3">
+				                    <items>
+				                        <VBox width="100%" direction="Column" id="vbox1" justifyContent="Center">
+				                            <items>
+				                                <HBox width="100%" id="hbox1" justifyContent="SpaceAround">
+                                                    <!--3 Buttons for dynamic view (Green, Orange, Red)-->
+				                                    <items>
+				                                        <Button xmlns="sap.m" text="Club 4" id="button10" type="Unstyled" class="greenButton" press="onZoneAPress" visible="false"/>
+				                                        <Button xmlns="sap.m" text="Club 4" id="button11" type="Unstyled" class="orangeButton" press="onZoneDPress" visible="false"/>
+				                                        <Button xmlns="sap.m" text="Club 4" id="button12" type="Unstyled" class="redButton" press="onZoneAPress" visible="false"/>
+				                                    </items>
+				                                </HBox>
+                                                <!--Filter to only get free values Club 4-->
+				                                <HBox width="100%" id="hbox2" justifyContent="SpaceAround" items="{path: '/Club',  filters: [{path: 'clubName',operator: 'EQ',value1: '4'}]}">
+				                                    <items>
+                                                        <!--Display the currentlyFree value from Club 4-->
+				                                        <Label text="Free Places: {currentlyFree}" width="100%" id="labelA"/>
+				                                    </items>
+				                                 </HBox>
+				                            </items>
+				                        </VBox>
+				                        <HBox width="100%" id="hbox7_1619096220919" justifyContent="SpaceAround">
+                                            <!--3 Buttons for dynamic view (Green, Orange, Red)-->
+				                            <items>
+				                                <Button xmlns="sap.m" text="Club 8" id="button22" type="Unstyled" class="greenButton" press="onZoneAPress" visible="false"/>
+				                                <Button xmlns="sap.m" text="Club 8" id="button23" type="Unstyled" class="orangeButton" press="onZoneAPress" visible="false"/>
+				                                <Button xmlns="sap.m" text="Club 8" id="button24" type="Unstyled" class="redButton" press="onZoneAPress" visible="false"/>
+				                            </items>
+				                        </HBox>
+                                        <!--Filter to only get values from Club 8-->
+				                        <HBox width="100%" id="hbox8_1619096225592" justifyContent="SpaceAround" items="{path: '/Club',  filters: [{path: 'clubName',operator: 'EQ',value1: '8'}]}">
+				                            <items>
+                                                <!--Display the currentlyFree value from Club 8-->
+				                                <Label text="Free Places: {currentlyFree}" width="100%" id="label3_1619096268408"/>
+				                            </items>
+				                        </HBox>
+				                    </items>
+				                </VBox>
+				            </items>
+				        </HBox>
+                    </content>
+				</Page>
+			</pages>
+		</App>
+        
+</mvc:View>
