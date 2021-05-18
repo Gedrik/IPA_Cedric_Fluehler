@@ -1,0 +1,67 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="workspacebookingns.ipacedricfluehler.controller.app" displayBlock="true">
+		<App id="app">
+			<pages>
+				<Page id="page" title="">
+					<content>
+				        <HBox width="100%" id="hbox2_1620395186583">
+				            <items>
+				                <HBox width="100%" id="hbox4_1620395212744">
+                                <!--Back Button-->
+				                    <items>
+				                        <Button xmlns="sap.m" text="Back" id="backButton" press="onBackPress" class="backButton" type="Unstyled"/>
+				                    </items>
+				                </HBox>
+				            </items>
+				        </HBox>
+
+                        <!--Label for Person quantity-->
+				        <HBox width="100%" id="hbox3">
+				            <items>
+				                <Label text="Number of Persons:" width="100%" id="label1" class="bookingText"/>
+				            </items>
+				        </HBox>
+
+                        <!--Buttons for input of quantity-->
+				        <HBox width="100%" id="hbox1" justifyContent="SpaceAround">
+				            <items>
+				                <VBox width="100%" direction="Column" id="vbox5" justifyContent="SpaceAround">
+				                    <items>
+				                        <HBox width="100%" id="hbox0_1620394252432" justifyContent="SpaceAround">
+				                            <items>
+				                                <Button xmlns="sap.m" text="1" id="quantity1id" class="bookingQuantity" type="Unstyled" press="quantity1"/>
+				                            </items>
+				                        </HBox>
+                                        
+				                        <HBox width="100%" id="hbox1_1620394263196" justifyContent="SpaceAround">
+				                            <items>
+				                                <Button xmlns="sap.m" text="3" id="quantity3id" class="bookingQuantity" type="Unstyled" press="quantity3"/>
+				                            </items>
+				                        </HBox>
+				                    </items>
+				                </VBox>
+
+				                <VBox width="100%" direction="Column" id="vbox3">
+				                    <items>
+				                        <HBox width="100%" id="hbox4" justifyContent="SpaceAround">
+				                            <items>
+				                                <Button xmlns="sap.m" text="2" id="quantity2id" type="Unstyled" class="bookingQuantity" press="quantity2"/>
+				                            </items>
+				                        </HBox>
+
+				                        <HBox width="100%" id="hbox5" justifyContent="SpaceAround">
+				                            <items>
+				                                <Button xmlns="sap.m" text="4" id="quantity4id" type="Unstyled" class="bookingQuantity" press="quantity4"/>
+				                            </items>
+				                        </HBox>
+				                    </items>
+				                </VBox>
+				            </items>
+				        </HBox>
+                        <!--Zone cache-->
+				        <Input xmlns="sap.m" id="input2" width="10%" visible="false" value=""/>
+                    </content>
+				</Page>
+			</pages>
+		</App>
+        
+</mvc:View>
