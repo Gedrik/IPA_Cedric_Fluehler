@@ -1,36 +1,119 @@
 /* Enter your custom styles here */
 .bookingText{
-
+    font-size: 1cm;
+    color: #ffffff;
 }
 
 .greenButton{
-
+    background-color: #000000;
+    border-color: #2B7D2B;
+    color: #ffffff;
+    border-width: 1mm;
+    height: 4cm;
+    width: 4cm;
+    font-size: x-large;
+    margin-top: 2cm;
+    border-radius: 25px;
 }
 
 .orangeButton{
-
+    background-color: #000000;
+    border-color: #E78C07;
+    color: #ffffff;
+    border-width: 1mm;
+    height: 4cm;
+    width: 4cm;
+    font-size: x-large;
+    margin-top: 1cm;
+    border-radius: 25px;
 }
 
 .redButton{
-
+    background-color: #000000;
+    border-color: #BB0000;
+    color: #ffffff;
+    border-width: 1mm;
+    height: 4cm;
+    width: 4cm;
+    font-size: x-large;
+    margin-top: 1cm;
+    border-radius: 25px;
 }
 
 .backButton{
-
+    background-color: #000000;
+    border-color: #ffffff;
+    color: #ffffff;
+    border-width: 0.8mm;
+    height: 3cm;
+    width: 3cm;
+    font-size: x-large;
+    margin-top: 1cm;
+    margin-left: 5cm;
+    border-radius: 15px;
 }
 
 .customButton{
-
+     background-color: #000000;
+    border-color: #ffffff;
+    color: #ffffff;
+    border-width: 1mm;
+    height: 5.5cm;
+    width: 5.5cm;
+    font-size: x-large;
+    margin-top: 1cm;
+    border-radius: 25px;
 }
 
 .bookingText{
-
+    font-size: 1cm;
+    color: #ffffff;
+    margin-left: 3cm;
+    margin-top: 2cm;
 }
 
 .bookingQuantity{
-
+    height: 5cm;
+    width: 5cm;
+    font-size: 0.7cm;
+    background-color: #000000;
+    border-color: #ffffff;
+    border-width: 1mm;
+    color: #ffffff;
+    border-radius: 25px;
+    margin-top: 2cm;
 }
 
 .confirmButton{
-    
+    background-color: #000000;
+    border-color: #ffffff;
+    color: #ffffff;
+    border-width: 1mm;
+    font-size: 1cm;
+    margin-right: 5cm;
+    margin-top: 1cm;
+    height: 3cm;
+    width: 10cm;
+    border-radius: 25px;
+}
+
+.mainImage{
+    margin-top: 1cm;
+    margin-bottom: 2cm;
+}
+
+.bookingOverviewText{
+    font-size: 1cm;
+    color: #ffffff;
+    margin-left: 3cm;
+    margin-top: 1cm;
+    margin-bottom: 1cm;
+}
+
+.bookingOverviewImg{
+    margin-top: 1cm;
+}
+
+.QrImg{
+    margin-left: 1cm;
 }
