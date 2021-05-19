@@ -9,7 +9,7 @@ sap.ui.define([
         var sServiceUrl = "/v2/catalog/";
         var oModel;
 
-		return Controller.extend("workspacebookingns.ipacedricfluehler.controller.app", {
+		return Controller.extend("workspacebookingns.ipacedricfluehler.controller.detailView", {
 			onInit: function () {
                 //define oModel
                 oModel = new sap.ui.model.odata.v2.ODataModel(sServiceUrl, true);
@@ -32,7 +32,7 @@ sap.ui.define([
                     timeLabel.setTitle("Club Orientation, " + time);
                 }, 1000);
             },
-            
+
             //function to get Time
             getTime: function(){
                 //create new variable with current time value
@@ -46,14 +46,9 @@ sap.ui.define([
                 var time = hour + ":" + minute;
                 return time;
             },
+            
+            onBackPress: function(){
 
-            onBookingPress: function(){
-                
             },
-
-            onDetailPress: function(){
-                
-            },
-
 		});
 	});

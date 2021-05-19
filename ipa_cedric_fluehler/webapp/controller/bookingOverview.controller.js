@@ -9,7 +9,7 @@ sap.ui.define([
         var sServiceUrl = "/v2/catalog/";
         var oModel;
 
-		return Controller.extend("workspacebookingns.ipacedricfluehler.controller.app", {
+		return Controller.extend("workspacebookingns.ipacedricfluehler.controller.bookingOverview", {
 			onInit: function () {
                 //define oModel
                 oModel = new sap.ui.model.odata.v2.ODataModel(sServiceUrl, true);
@@ -47,13 +47,14 @@ sap.ui.define([
                 return time;
             },
 
-            onBookingPress: function(){
-                
+            onConfirmPress: function(){
+
             },
 
-            onDetailPress: function(){
+            onBackPress: function(){
                 
-            },
+            }
+
 
 		});
 	});

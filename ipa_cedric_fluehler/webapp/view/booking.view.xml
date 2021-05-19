@@ -1,4 +1,9 @@
-<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="workspacebookingns.ipacedricfluehler.controller.app" displayBlock="true">
+<mvc:View 
+    xmlns:mvc="sap.ui.core.mvc" 
+    xmlns="sap.m" 
+    controllerName="workspacebookingns.ipacedricfluehler.controller.booking" 
+    displayBlock="true">
+    
 		<App id="app">
 			<pages>
 				<Page id="page" title="">
@@ -28,13 +33,13 @@
 				                    <items>
 				                        <HBox width="100%" id="hbox0_1620394252432" justifyContent="SpaceAround">
 				                            <items>
-				                                <Button xmlns="sap.m" text="1" id="quantity1id" class="bookingQuantity" type="Unstyled" press="quantity1"/>
+				                                <Button xmlns="sap.m" text="1" id="quantity1id" class="bookingQuantity" type="Unstyled" press="onQuantity1Press"/>
 				                            </items>
 				                        </HBox>
                                         
 				                        <HBox width="100%" id="hbox1_1620394263196" justifyContent="SpaceAround">
 				                            <items>
-				                                <Button xmlns="sap.m" text="3" id="quantity3id" class="bookingQuantity" type="Unstyled" press="quantity3"/>
+				                                <Button xmlns="sap.m" text="3" id="quantity3id" class="bookingQuantity" type="Unstyled" press="onQuantity3Press"/>
 				                            </items>
 				                        </HBox>
 				                    </items>
@@ -44,21 +49,23 @@
 				                    <items>
 				                        <HBox width="100%" id="hbox4" justifyContent="SpaceAround">
 				                            <items>
-				                                <Button xmlns="sap.m" text="2" id="quantity2id" type="Unstyled" class="bookingQuantity" press="quantity2"/>
+				                                <Button xmlns="sap.m" text="2" id="quantity2id" type="Unstyled" class="bookingQuantity" press="onQuantity2Press"/>
 				                            </items>
 				                        </HBox>
 
 				                        <HBox width="100%" id="hbox5" justifyContent="SpaceAround">
 				                            <items>
-				                                <Button xmlns="sap.m" text="4" id="quantity4id" type="Unstyled" class="bookingQuantity" press="quantity4"/>
+				                                <Button xmlns="sap.m" text="4" id="quantity4id" type="Unstyled" class="bookingQuantity" press="onQuantity4Press"/>
 				                            </items>
 				                        </HBox>
 				                    </items>
 				                </VBox>
 				            </items>
 				        </HBox>
+                        <!--Quantity cache-->
+				        <Input xmlns="sap.m" id="quantityCache" width="10%" visible="true" value=""/>
                         <!--Zone cache-->
-				        <Input xmlns="sap.m" id="input2" width="10%" visible="false" value=""/>
+				        <Input xmlns="sap.m" id="zoneCache" width="10%" visible="true" value="{TempDataModel>/Zone}"/>
                     </content>
 				</Page>
 			</pages>
