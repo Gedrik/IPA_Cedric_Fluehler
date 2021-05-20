@@ -1,8 +1,4 @@
-<mvc:View 
-    xmlns:mvc="sap.ui.core.mvc" 
-    xmlns="sap.m" 
-    controllerName="workspacebookingns.ipacedricfluehler.controller.bookingOverview" 
-    displayBlock="true">
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="workspacebookingns.ipacedricfluehler.controller.bookingOverview" displayBlock="true">
     
 		<App id="app">
 			<pages>
@@ -11,7 +7,7 @@
 
                         <HBox width="100%" id="hbox1" justifyContent="Center">
 				            <items>
-				                <HBox width="10%" id="hbox4_1620395212744">
+				                <HBox width="10%" id="hbox4_1620395212744" justifyContent="Center">
 				                    <items><Button xmlns="sap.m" text="Back" id="backButton" press="onBackPress" class="backButton" type="Unstyled"/>
 				                    </items>
 				                </HBox>
@@ -25,13 +21,13 @@
 
 				        <HBox width="100%" id="hbox0">
 				            <items>
-				                <Label text="Zone: {TempDataModel>/Zone}" width="100%" id="label0" class="bookingOverviewText"/>
+				                <Label text="Club: {TempDataModel>/Zone}" width="100%" id="label0" class="bookingOverviewText"/>
 				            </items>
 				        </HBox>
 
 				        <HBox width="100%" id="hbox3">
 				            <items>
-				                <Label text="Number of Persons: {TempDataModel>/Quantity}" width="100%" id="label1" class="bookingOverviewText"/>
+				                <Label text="Number of Persons: {TempDataModel2>/Quantity}" width="100%" id="label1" class="bookingOverviewText"/>
 				            </items>
 				        </HBox>
 

@@ -42,13 +42,20 @@ sap.ui.define([
                 var hour = today.getHours();
                 var minute = today.getMinutes(); 
 
+                //sets 0 infront of nubers 0-9 (fixes 10:3 to 10:03)
+                if (minute <= 9){
+                    minute = "0" + minute
+                } 
+
                 //seperate hour and minute with a :
                 var time = hour + ":" + minute;
                 return time;
             },
             
+            //back navigation to main view
             onBackPress: function(){
-
+                var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+                oRouter.navTo("app");
             },
 		});
 	});

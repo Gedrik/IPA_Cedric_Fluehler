@@ -63,9 +63,9 @@
 				            </items>
 				        </HBox>
                         <!--Quantity cache-->
-				        <Input xmlns="sap.m" id="quantityCache" width="10%" visible="true" value=""/>
-                        <!--Zone cache-->
-				        <Input xmlns="sap.m" id="zoneCache" width="10%" visible="true" value="{TempDataModel>/Zone}"/>
+				        <Input xmlns="sap.m" id="quantityCache" width="10%" visible="false" value=""/>
+                        <!--Club cache-->
+				        <Input xmlns="sap.m" id="zoneCache" width="10%" visible="false" value="{TempDataModel>/Zone}"/>
                     </content>
 				</Page>
 			</pages>

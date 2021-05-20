@@ -88,14 +88,42 @@
                 "clearControlAggregation": false
             },
             "routes": [
-                {
-                    "name": "Routeapp",
-                    "pattern": "Routeapp",
-                    "target": [
-                        "Targetapp"
-                    ]
-                }
-            ],
+        {
+          "pattern": "",            
+          "name": "app",
+          "view": "app",
+          "targetAggregation": "pages",
+          "controlId": "app" 
+        },
+        {
+          "pattern": "booking",            
+          "name": "booking",
+          "view": "booking",
+          "targetAggregation": "pages",
+          "controlId": "app"            
+        },
+        {
+          "pattern": "zones",            
+          "name": "zones",
+          "view": "zones",
+          "targetAggregation": "pages",
+          "controlId": "app"            
+        },
+        {
+          "pattern": "detailView",            
+          "name": "detailView",
+          "view": "detailView",
+          "targetAggregation": "pages",
+          "controlId": "app"            
+        },
+        {
+          "pattern": "bookingOverview",            
+          "name": "bookingOverview",
+          "view": "bookingOverview",
+          "targetAggregation": "pages",
+          "controlId": "app"            
+        }
+      ],
             "targets": {
                 "Targetapp": {
                     "viewType": "XML",

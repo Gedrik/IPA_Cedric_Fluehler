@@ -26,8 +26,11 @@ sap.ui.define([
 			// set the device model
             this.setModel(models.createDeviceModel(), "device");
             
-            //create temporary data model 
+            //create temporary data model for zone value
             this.setModel(new sap.ui.model.json.JSONModel() , "TempDataModel");
+
+            //create temporary data model quantity value
+            this.setModel(new sap.ui.model.json.JSONModel() , "TempDataModel2");
 		}
 	});
 });

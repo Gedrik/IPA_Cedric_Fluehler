@@ -42,50 +42,98 @@ sap.ui.define([
                 var hour = today.getHours();
                 var minute = today.getMinutes(); 
 
+
+                //sets 0 infront of nubers 0-9 (fixes 10:3 to 10:03)
+                if (minute <= 9){
+                    minute = "0" + minute
+                } 
+
                 //seperate hour and minute with a :
                 var time = hour + ":" + minute;
                 return time;
             },
 
+            //function for 1 person button
             onQuantity1Press: function(){
+
+                //set value for quantity input field
                 this.getView().byId("quantityCache").setValue("1");
 
+                //get value from quantity input field and set value in temporary data model
                 var tquantity = sap.ui.getCore().byId(this.createId("quantityCache")).getValue();
-                this.getView().getModel("TempDataModel").setProperty("/",{ "Quantity":tquantity} );
+                this.getView().getModel("TempDataModel2").setProperty("/",{ "Quantity":tquantity} );
                 
+                //get value from zone input field and set value in temporary data model
                 var tzone = sap.ui.getCore().byId(this.createId("zoneCache")).getValue();
                 this.getView().getModel("TempDataModel").setProperty("/",{ "Zone":tzone} );
 
+                //navigation to booking overview
+                var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+                oRouter.navTo("bookingOverview");
+
             },
 
+            //function for 2 person button
             onQuantity2Press: function(){
+
+                //set value for quantity input field
                 this.getView().byId("quantityCache").setValue("2");
 
+                //get value from quantity input field and set value in temporary data model
                 var tquantity = sap.ui.getCore().byId(this.createId("quantityCache")).getValue();
-                this.getView().getModel("TempDataModel").setProperty("/",{ "Quantity":tquantity} );
+                this.getView().getModel("TempDataModel2").setProperty("/",{ "Quantity":tquantity} );
                 
+                //get value from zone input field and set value in temporary data model
                 var tzone = sap.ui.getCore().byId(this.createId("zoneCache")).getValue();
                 this.getView().getModel("TempDataModel").setProperty("/",{ "Zone":tzone} );
+
+                //navigation to booking overview
+                var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+                oRouter.navTo("bookingOverview");
             },
 
+            //function for 3 person button
             onQuantity3Press: function(){
+
+                //set value for quantity input field
                 this.getView().byId("quantityCache").setValue("3");
 
+                //get value from quantity input field and set value in temporary data model
                 var tquantity = sap.ui.getCore().byId(this.createId("quantityCache")).getValue();
-                this.getView().getModel("TempDataModel").setProperty("/",{ "Quantity":tquantity} );
+                this.getView().getModel("TempDataModel2").setProperty("/",{ "Quantity":tquantity} );
                 
+                //get value from zone input field and set value in temporary data model
                 var tzone = sap.ui.getCore().byId(this.createId("zoneCache")).getValue();
                 this.getView().getModel("TempDataModel").setProperty("/",{ "Zone":tzone} );
+
+                //navigation to booking overview
+                var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+                oRouter.navTo("bookingOverview");
             },
 
+            //function for 4 person button
             onQuantity4Press: function(){
+
+                //set value for quantity input field
                 this.getView().byId("quantityCache").setValue("4");
 
+                //get value from quantity input field and set value in temporary data model
                 var tquantity = sap.ui.getCore().byId(this.createId("quantityCache")).getValue();
-                this.getView().getModel("TempDataModel").setProperty("/",{ "Quantity":tquantity} );
+                this.getView().getModel("TempDataModel2").setProperty("/",{ "Quantity":tquantity} );
                 
+                //get value from zone input field and set value in temporary data model
                 var tzone = sap.ui.getCore().byId(this.createId("zoneCache")).getValue();
                 this.getView().getModel("TempDataModel").setProperty("/",{ "Zone":tzone} );
+
+                //navigation to booking overview
+                var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+                oRouter.navTo("bookingOverview");
+            },
+
+            //back navigation to zones view
+            onBackPress: function(){
+                var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+                oRouter.navTo("zones");
             },
 
 		});
