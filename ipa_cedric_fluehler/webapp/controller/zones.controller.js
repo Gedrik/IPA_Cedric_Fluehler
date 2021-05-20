@@ -68,7 +68,271 @@ sap.ui.define([
 
             //logic for change of button color 
             buttonColor: function(){
+                var zone1 = oModel.getProperty("/Club(1)/currentlyFree");
+                var zone2 = oModel.getProperty("/Club(2)/currentlyFree");
+                var zone3 = oModel.getProperty("/Club(3)/currentlyFree");
+                var zone4 = oModel.getProperty("/Club(4)/currentlyFree");
+                var zone5 = oModel.getProperty("/Club(5)/currentlyFree");
+                var zone6 = oModel.getProperty("/Club(6)/currentlyFree");
+                var zone7 = oModel.getProperty("/Club(7)/currentlyFree");
+                var zone8 = oModel.getProperty("/Club(8)/currentlyFree");
+                
 
+                    switch(zone1){
+                        case 0:
+                            this.getView().byId("button1").setVisible(false);
+                            this.getView().byId("button2").setVisible(false);
+                            this.getView().byId("button3").setVisible(true);
+                            this.getView().byId("button3").setBlocked(true);
+                            this.getView().byId("button3").setEnabled(false);
+                            this.getView().byId("label1").setVisible(false);
+                            break;
+                        case 1: case 2: case 3: case 4: case 5: case 6: case 7: case 8: case 9: 
+                            this.getView().byId("button1").setVisible(false);
+                            this.getView().byId("button2").setVisible(false);
+                            this.getView().byId("button3").setVisible(true);
+                            this.getView().byId("button3").setBlocked(false);
+                            this.getView().byId("button3").setEnabled(true);
+                            this.getView().byId("label1").setVisible(true);
+                            break;
+                        case 10: case 11: case 12: case 13:
+                            this.getView().byId("button1").setVisible(false);
+                            this.getView().byId("button2").setVisible(true);
+                            this.getView().byId("button3").setVisible(false);
+                            this.getView().byId("button3").setBlocked(false);
+                            this.getView().byId("button3").setEnabled(true);
+                            this.getView().byId("label1").setVisible(true);
+                            break;
+                        case 14: case 15: case 16:
+                            this.getView().byId("button1").setVisible(true);
+                            this.getView().byId("button2").setVisible(false);
+                            this.getView().byId("button3").setVisible(false);
+                            this.getView().byId("button3").setBlocked(false);
+                            this.getView().byId("button3").setEnabled(true);
+                            this.getView().byId("label1").setVisible(true);
+                            break;
+                    }
+
+                    switch(zone2){
+                        //Knopf deaktivieren (kein freier Platz mehr)
+                        case 0:
+                            this.getView().byId("button4").setVisible(false);
+                            this.getView().byId("button5").setVisible(false);
+                            this.getView().byId("button6").setVisible(true);
+                            this.getView().byId("button6").setBlocked(true);
+                            this.getView().byId("button6").setEnabled(false);
+                            break;
+                        case 1: case 2:
+                            //Roter Knopf (80-100% Ausgebucht)                               
+                            this.getView().byId("button4").setVisible(false);
+                            this.getView().byId("button5").setVisible(false);
+                            this.getView().byId("button6").setVisible(true);
+                            this.getView().byId("button6").setBlocked(false);
+                            this.getView().byId("button6").setEnabled(true);
+                            break;
+                        case 3: case 4:
+                            //Oranger Knopf (50-80% Ausgebucht)
+                            this.getView().byId("button4").setVisible(false);
+                            this.getView().byId("button5").setVisible(true);
+                            this.getView().byId("button6").setVisible(false);
+                            this.getView().byId("button6").setBlocked(false);
+                            this.getView().byId("button6").setEnabled(true);
+                            break;
+                        case 5: case 6: case 7: case 8: case 9: case 10:
+                            //Grüner Knopf (0-50% Ausgebucht)
+                            this.getView().byId("button4").setVisible(true);
+                            this.getView().byId("button5").setVisible(false);
+                            this.getView().byId("button6").setVisible(false);
+                            this.getView().byId("button6").setBlocked(false);
+                            this.getView().byId("button6").setEnabled(true);
+                            break;
+                    }
+
+                    switch(zone3){
+                        case 0:
+                            this.getView().byId("button7").setVisible(false);
+                            this.getView().byId("button8").setVisible(false);
+                            this.getView().byId("button9").setVisible(true);
+                            this.getView().byId("button9").setBlocked(true);
+                            this.getView().byId("button9").setEnabled(false);
+                            break;
+                        case 1: case 2: case 3: case 4: case 5: case 6: case 7: case 8: case 9: 
+                            this.getView().byId("button7").setVisible(false);
+                            this.getView().byId("button8").setVisible(false);
+                            this.getView().byId("button9").setVisible(true);
+                            this.getView().byId("button9").setBlocked(false);
+                            this.getView().byId("button9").setEnabled(true);
+                            break;
+                        case 10: case 11: case 12: case 13:
+                            this.getView().byId("button7").setVisible(false);
+                            this.getView().byId("button8").setVisible(true);
+                            this.getView().byId("button9").setVisible(false);
+                            this.getView().byId("button9").setBlocked(false);
+                            this.getView().byId("button9").setEnabled(true);
+                            break;
+                        case 14: case 15: case 16:
+                            this.getView().byId("button7").setVisible(true);
+                            this.getView().byId("button8").setVisible(false);
+                            this.getView().byId("button9").setVisible(false);
+                            this.getView().byId("button9").setBlocked(false);
+                            this.getView().byId("button9").setEnabled(true);
+                            break;
+                    }
+
+                    switch(zone4){
+                        case 0:
+                            this.getView().byId("button10").setVisible(false);
+                            this.getView().byId("button11").setVisible(false);
+                            this.getView().byId("button12").setVisible(true);
+                            this.getView().byId("button12").setBlocked(true);
+                            this.getView().byId("button12").setEnabled(false);
+                            break;
+                        case 1: case 2: case 3: case 4: case 5: case 6: case 7: case 8: case 9: 
+                            this.getView().byId("button10").setVisible(false);
+                            this.getView().byId("button11").setVisible(false);
+                            this.getView().byId("button12").setVisible(true);
+                            this.getView().byId("button12").setBlocked(false);
+                            this.getView().byId("button12").setEnabled(true);
+                            break;
+                        case 10: case 11: case 12: case 13:
+                            this.getView().byId("button10").setVisible(false);
+                            this.getView().byId("button11").setVisible(true);
+                            this.getView().byId("button12").setVisible(false);
+                            this.getView().byId("button12").setBlocked(false);
+                            this.getView().byId("button12").setEnabled(true);
+                            break;
+                        case 14: case 15: case 16:
+                            this.getView().byId("button10").setVisible(true);
+                            this.getView().byId("button11").setVisible(false);
+                            this.getView().byId("button12").setVisible(false);
+                            this.getView().byId("button12").setBlocked(false);
+                            this.getView().byId("button12").setEnabled(true);
+                            break;
+                    }
+
+                    switch(zone5){
+                        case 0:
+                            this.getView().byId("button13").setVisible(false);
+                            this.getView().byId("button14").setVisible(false);
+                            this.getView().byId("button15").setVisible(true);
+                            this.getView().byId("button15").setBlocked(true);
+                            this.getView().byId("button15").setEnabled(false);
+                            break;
+                        case 1: case 2:   
+                            this.getView().byId("button13").setVisible(false);
+                            this.getView().byId("button14").setVisible(false);
+                            this.getView().byId("button15").setVisible(true);
+                            this.getView().byId("button15").setBlocked(false);
+                            this.getView().byId("button15").setEnabled(true);
+                            break;
+                        case 3: case 4: case 5:
+                            this.getView().byId("button13").setVisible(false);
+                            this.getView().byId("button14").setVisible(true);
+                            this.getView().byId("button15").setVisible(false);
+                            this.getView().byId("button15").setBlocked(false);
+                            this.getView().byId("button15").setEnabled(true);
+                            break;
+                        case 6: case 7: case 8: case 9: case 10: case 11: case 12:
+                            this.getView().byId("button13").setVisible(true);
+                            this.getView().byId("button14").setVisible(false);
+                            this.getView().byId("button15").setVisible(false);
+                            this.getView().byId("button15").setBlocked(false);
+                            this.getView().byId("button15").setEnabled(true);
+                            break;
+                    }
+
+                    switch(zone6){
+                        case 0:
+                            this.getView().byId("button16").setVisible(false);
+                            this.getView().byId("button17").setVisible(false);
+                            this.getView().byId("button18").setVisible(true);
+                            this.getView().byId("button18").setBlocked(true);
+                            this.getView().byId("button18").setEnabled(false);
+                            break;
+                        case 1: case 2: case 3: case 4: case 5: case 6: case 7: case 8: case 9: 
+                            this.getView().byId("button16").setVisible(false);
+                            this.getView().byId("button17").setVisible(false);
+                            this.getView().byId("button18").setVisible(true);
+                            this.getView().byId("button18").setBlocked(false);
+                            this.getView().byId("button18").setEnabled(true);
+                            break;
+                        case 10: case 11: case 12: case 13:
+                            this.getView().byId("button16").setVisible(false);
+                            this.getView().byId("button17").setVisible(true);
+                            this.getView().byId("button18").setVisible(false);
+                            this.getView().byId("button18").setBlocked(false);
+                            this.getView().byId("button18").setEnabled(true);
+                            break;
+                        case 14: case 15: case 16:
+                            this.getView().byId("button16").setVisible(true);
+                            this.getView().byId("button17").setVisible(false);
+                            this.getView().byId("button18").setVisible(false);
+                            this.getView().byId("button18").setBlocked(false);
+                            this.getView().byId("button18").setEnabled(true);
+                            break;
+                    }
+
+                    switch(zone7){
+                        case 0:
+                            this.getView().byId("button19").setVisible(false);
+                            this.getView().byId("button20").setVisible(false);
+                            this.getView().byId("button21").setVisible(true);
+                            this.getView().byId("button21").setBlocked(true);
+                            this.getView().byId("button21").setEnabled(false);
+                            break;
+                        case 1: case 2: case 3: case 4: case 5: case 6: case 7: case 8: case 9: 
+                            this.getView().byId("button19").setVisible(false);
+                            this.getView().byId("button20").setVisible(false);
+                            this.getView().byId("button21").setVisible(true);
+                            this.getView().byId("button21").setBlocked(false);
+                            this.getView().byId("button21").setEnabled(true);
+                            break;
+                        case 10: case 11: case 12: case 13:
+                            this.getView().byId("button19").setVisible(false);
+                            this.getView().byId("button20").setVisible(true);
+                            this.getView().byId("button21").setVisible(false);
+                            this.getView().byId("button21").setBlocked(false);
+                            this.getView().byId("button21").setEnabled(true);
+                            break;
+                        case 14: case 15: case 16:
+                            this.getView().byId("button19").setVisible(true);
+                            this.getView().byId("button20").setVisible(false);
+                            this.getView().byId("button21").setVisible(false);
+                            this.getView().byId("button21").setBlocked(false);
+                            this.getView().byId("button21").setEnabled(true);
+                            break;
+                    }
+
+                    switch(zone8){
+                        case 0:
+                            this.getView().byId("button22").setVisible(false);
+                            this.getView().byId("button23").setVisible(false);
+                            this.getView().byId("button24").setVisible(true);
+                            this.getView().byId("button24").setBlocked(true);
+                            this.getView().byId("button24").setEnabled(false);
+                            break;
+                        case 1: case 2:  
+                            this.getView().byId("button22").setVisible(false);
+                            this.getView().byId("button23").setVisible(false);
+                            this.getView().byId("button24").setVisible(true);
+                            this.getView().byId("button24").setBlocked(false);
+                            this.getView().byId("button24").setEnabled(true);
+                            break;
+                        case 3: case 4: case 5:
+                            this.getView().byId("button22").setVisible(false);
+                            this.getView().byId("button23").setVisible(true);
+                            this.getView().byId("button24").setVisible(false);
+                            this.getView().byId("button24").setBlocked(false);
+                            this.getView().byId("button24").setEnabled(true);
+                            break;
+                        case 6: case 7: case 8: case 9: case 10: case 11: case 12:
+                            this.getView().byId("button22").setVisible(true);
+                            this.getView().byId("button23").setVisible(false);
+                            this.getView().byId("button24").setVisible(false);
+                            this.getView().byId("button24").setBlocked(false);
+                            this.getView().byId("button24").setEnabled(true);
+                            break;
+                    }
             },
 
             //logic when club 1 button is pressed
@@ -183,8 +447,36 @@ sap.ui.define([
                 oRouter.navTo("booking");
             },
 
+            startState: function(){
+                this.getView().byId("button1").setVisible(false);
+                this.getView().byId("button2").setVisible(false);
+                this.getView().byId("button3").setVisible(false);
+                this.getView().byId("button4").setVisible(false);
+                this.getView().byId("button5").setVisible(false);
+                this.getView().byId("button6").setVisible(false);
+                this.getView().byId("button7").setVisible(false);
+                this.getView().byId("button8").setVisible(false);
+                this.getView().byId("button9").setVisible(false);
+                this.getView().byId("button10").setVisible(false);
+                this.getView().byId("button11").setVisible(false);
+                this.getView().byId("button12").setVisible(false);
+                this.getView().byId("button13").setVisible(false);
+                this.getView().byId("button14").setVisible(false);
+                this.getView().byId("button15").setVisible(false);
+                this.getView().byId("button16").setVisible(false);
+                this.getView().byId("button17").setVisible(false);
+                this.getView().byId("button18").setVisible(false);
+                this.getView().byId("button19").setVisible(false);
+                this.getView().byId("button20").setVisible(false);
+                this.getView().byId("button21").setVisible(false);
+                this.getView().byId("button22").setVisible(false);
+                this.getView().byId("button23").setVisible(false);
+                this.getView().byId("button24").setVisible(false);
+            },
+
             //navigate back to main view
             onBackPress: function(){
+                this.startState();
                 var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
                 oRouter.navTo("app");
             },
