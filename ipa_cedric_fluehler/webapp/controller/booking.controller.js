@@ -16,6 +16,9 @@ sap.ui.define([
 			    //set Model into view
                 this.getView().setModel(oModel);
 
+                //start inactivity timer
+                this.detectInactivity();
+
                 var that = this
                 //get id of page header
                 var timeLabel = this.getView().byId("page");
@@ -128,6 +131,33 @@ sap.ui.define([
                 //navigation to booking overview
                 var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
                 oRouter.navTo("bookingOverview");
+            },
+
+            //resetTimer function inspired by: https://www.kirupa.com/html5/detecting_if_the_user_is_idle_or_inactive.htm
+            //detect user activity source: https://www.w3schools.com/jsref/dom_obj_event.asp
+            detectInactivity: function() {
+                var inactivityTime;
+                var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+                
+                //reset timer when view is loaded
+                window.onload = resetTimer;
+                //detect user activity and reset the timer if so
+                document.onmousemove = resetTimer;
+                document.onkeypress = resetTimer;
+                document.ontouchmove = resetTimer;
+
+                //routing to main view
+                function mainMenuRouting() {
+                    oRouter.navTo("app");
+                }
+
+                //resets timer after activity is detectet
+                function resetTimer() {
+                    //clears value in inactivityTime variable
+                    clearTimeout(inactivityTime);
+                    //calls mainMenuRouting fuction after 60 seconds (1000ms = 1 sec)
+                    inactivityTime = setTimeout(mainMenuRouting, 60000)
+                }
             },
 
             //back navigation to zones view

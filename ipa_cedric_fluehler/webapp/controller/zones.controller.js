@@ -16,6 +16,9 @@ sap.ui.define([
 			    //set Model into view
                 this.getView().setModel(oModel);
 
+                //start inactivity timer
+                this.detectInactivity();
+
                 //onInit function was only called once, addEventDelegate + onBeforeShow by Deepak Raj
                 //https://stackoverflow.com/questions/37757002/oninit-onafterrendering-not-being-called-when-returning-back-to-the-page
                 this.getView().addEventDelegate({
@@ -79,37 +82,37 @@ sap.ui.define([
                 
 
                     switch(zone1){
+                        //deactivate button
                         case 0:
                             this.getView().byId("button1").setVisible(false);
                             this.getView().byId("button2").setVisible(false);
                             this.getView().byId("button3").setVisible(true);
                             this.getView().byId("button3").setBlocked(true);
                             this.getView().byId("button3").setEnabled(false);
-                            this.getView().byId("label1").setVisible(false);
                             break;
-                        case 1: case 2: case 3: case 4: case 5: case 6: case 7: case 8: case 9: 
+                        //red button
+                        case 1: case 2: case 3:  
                             this.getView().byId("button1").setVisible(false);
                             this.getView().byId("button2").setVisible(false);
                             this.getView().byId("button3").setVisible(true);
                             this.getView().byId("button3").setBlocked(false);
                             this.getView().byId("button3").setEnabled(true);
-                            this.getView().byId("label1").setVisible(true);
                             break;
-                        case 10: case 11: case 12: case 13:
+                        //orange button
+                        case 4: case 5: case 6: case 7:
                             this.getView().byId("button1").setVisible(false);
                             this.getView().byId("button2").setVisible(true);
                             this.getView().byId("button3").setVisible(false);
                             this.getView().byId("button3").setBlocked(false);
                             this.getView().byId("button3").setEnabled(true);
-                            this.getView().byId("label1").setVisible(true);
                             break;
-                        case 14: case 15: case 16:
+                        //green button
+                        case 8: case 9: case 10: case 11: case 12: case 13: case 14: case 15: case 16:
                             this.getView().byId("button1").setVisible(true);
                             this.getView().byId("button2").setVisible(false);
                             this.getView().byId("button3").setVisible(false);
                             this.getView().byId("button3").setBlocked(false);
                             this.getView().byId("button3").setEnabled(true);
-                            this.getView().byId("label1").setVisible(true);
                             break;
                     }
 
@@ -130,7 +133,7 @@ sap.ui.define([
                             this.getView().byId("button6").setBlocked(false);
                             this.getView().byId("button6").setEnabled(true);
                             break;
-                        case 3: case 4:
+                        case 3: case 4: case 5:
                             //Oranger Knopf (50-80% Ausgebucht)
                             this.getView().byId("button4").setVisible(false);
                             this.getView().byId("button5").setVisible(true);
@@ -138,7 +141,7 @@ sap.ui.define([
                             this.getView().byId("button6").setBlocked(false);
                             this.getView().byId("button6").setEnabled(true);
                             break;
-                        case 5: case 6: case 7: case 8: case 9: case 10:
+                        case 6: case 7: case 8: case 9: case 10:
                             //Grüner Knopf (0-50% Ausgebucht)
                             this.getView().byId("button4").setVisible(true);
                             this.getView().byId("button5").setVisible(false);
@@ -156,21 +159,21 @@ sap.ui.define([
                             this.getView().byId("button9").setBlocked(true);
                             this.getView().byId("button9").setEnabled(false);
                             break;
-                        case 1: case 2: case 3: case 4: case 5: case 6: case 7: case 8: case 9: 
+                        case 1: case 2: case 3:   
                             this.getView().byId("button7").setVisible(false);
                             this.getView().byId("button8").setVisible(false);
                             this.getView().byId("button9").setVisible(true);
                             this.getView().byId("button9").setBlocked(false);
                             this.getView().byId("button9").setEnabled(true);
                             break;
-                        case 10: case 11: case 12: case 13:
+                        case 4: case 5: case 6: case 7:
                             this.getView().byId("button7").setVisible(false);
                             this.getView().byId("button8").setVisible(true);
                             this.getView().byId("button9").setVisible(false);
                             this.getView().byId("button9").setBlocked(false);
                             this.getView().byId("button9").setEnabled(true);
                             break;
-                        case 14: case 15: case 16:
+                        case 8: case 9: case 10: case 11: case 12: case 13: case 14: case 15: case 16:
                             this.getView().byId("button7").setVisible(true);
                             this.getView().byId("button8").setVisible(false);
                             this.getView().byId("button9").setVisible(false);
@@ -187,21 +190,21 @@ sap.ui.define([
                             this.getView().byId("button12").setBlocked(true);
                             this.getView().byId("button12").setEnabled(false);
                             break;
-                        case 1: case 2: case 3: case 4: case 5: case 6: case 7: case 8: case 9: 
+                        case 1: case 2: case 3:   
                             this.getView().byId("button10").setVisible(false);
                             this.getView().byId("button11").setVisible(false);
                             this.getView().byId("button12").setVisible(true);
                             this.getView().byId("button12").setBlocked(false);
                             this.getView().byId("button12").setEnabled(true);
                             break;
-                        case 10: case 11: case 12: case 13:
+                        case 4: case 5: case 6: case 7:
                             this.getView().byId("button10").setVisible(false);
                             this.getView().byId("button11").setVisible(true);
                             this.getView().byId("button12").setVisible(false);
                             this.getView().byId("button12").setBlocked(false);
                             this.getView().byId("button12").setEnabled(true);
                             break;
-                        case 14: case 15: case 16:
+                        case 8: case 9: case 10: case 11: case 12: case 13: case 14: case 15: case 16:
                             this.getView().byId("button10").setVisible(true);
                             this.getView().byId("button11").setVisible(false);
                             this.getView().byId("button12").setVisible(false);
@@ -225,14 +228,14 @@ sap.ui.define([
                             this.getView().byId("button15").setBlocked(false);
                             this.getView().byId("button15").setEnabled(true);
                             break;
-                        case 3: case 4: case 5:
+                        case 3: case 4: case 5: case 6:
                             this.getView().byId("button13").setVisible(false);
                             this.getView().byId("button14").setVisible(true);
                             this.getView().byId("button15").setVisible(false);
                             this.getView().byId("button15").setBlocked(false);
                             this.getView().byId("button15").setEnabled(true);
                             break;
-                        case 6: case 7: case 8: case 9: case 10: case 11: case 12:
+                         case 7: case 8: case 9: case 10: case 11: case 12:
                             this.getView().byId("button13").setVisible(true);
                             this.getView().byId("button14").setVisible(false);
                             this.getView().byId("button15").setVisible(false);
@@ -249,21 +252,21 @@ sap.ui.define([
                             this.getView().byId("button18").setBlocked(true);
                             this.getView().byId("button18").setEnabled(false);
                             break;
-                        case 1: case 2: case 3: case 4: case 5: case 6: case 7: case 8: case 9: 
+                        case 1: case 2: case 3:    
                             this.getView().byId("button16").setVisible(false);
                             this.getView().byId("button17").setVisible(false);
                             this.getView().byId("button18").setVisible(true);
                             this.getView().byId("button18").setBlocked(false);
                             this.getView().byId("button18").setEnabled(true);
                             break;
-                        case 10: case 11: case 12: case 13:
+                        case 4: case 5: case 6: case 7:
                             this.getView().byId("button16").setVisible(false);
                             this.getView().byId("button17").setVisible(true);
                             this.getView().byId("button18").setVisible(false);
                             this.getView().byId("button18").setBlocked(false);
                             this.getView().byId("button18").setEnabled(true);
                             break;
-                        case 14: case 15: case 16:
+                        case 8: case 9: case 10: case 11: case 12: case 13: case 14: case 15: case 16:
                             this.getView().byId("button16").setVisible(true);
                             this.getView().byId("button17").setVisible(false);
                             this.getView().byId("button18").setVisible(false);
@@ -280,21 +283,21 @@ sap.ui.define([
                             this.getView().byId("button21").setBlocked(true);
                             this.getView().byId("button21").setEnabled(false);
                             break;
-                        case 1: case 2: case 3: case 4: case 5: case 6: case 7: case 8: case 9: 
+                        case 1: case 2: case 3:   
                             this.getView().byId("button19").setVisible(false);
                             this.getView().byId("button20").setVisible(false);
                             this.getView().byId("button21").setVisible(true);
                             this.getView().byId("button21").setBlocked(false);
                             this.getView().byId("button21").setEnabled(true);
                             break;
-                        case 10: case 11: case 12: case 13:
+                        case 4: case 5: case 6: case 7:
                             this.getView().byId("button19").setVisible(false);
                             this.getView().byId("button20").setVisible(true);
                             this.getView().byId("button21").setVisible(false);
                             this.getView().byId("button21").setBlocked(false);
                             this.getView().byId("button21").setEnabled(true);
                             break;
-                        case 14: case 15: case 16:
+                        case 8: case 9: case 10: case 11: case 12: case 13: case 14: case 15: case 16:
                             this.getView().byId("button19").setVisible(true);
                             this.getView().byId("button20").setVisible(false);
                             this.getView().byId("button21").setVisible(false);
@@ -318,14 +321,14 @@ sap.ui.define([
                             this.getView().byId("button24").setBlocked(false);
                             this.getView().byId("button24").setEnabled(true);
                             break;
-                        case 3: case 4: case 5:
+                        case 3: case 4: case 5: case 6:
                             this.getView().byId("button22").setVisible(false);
                             this.getView().byId("button23").setVisible(true);
                             this.getView().byId("button24").setVisible(false);
                             this.getView().byId("button24").setBlocked(false);
                             this.getView().byId("button24").setEnabled(true);
                             break;
-                        case 6: case 7: case 8: case 9: case 10: case 11: case 12:
+                        case 7: case 8: case 9: case 10: case 11: case 12:
                             this.getView().byId("button22").setVisible(true);
                             this.getView().byId("button23").setVisible(false);
                             this.getView().byId("button24").setVisible(false);
@@ -474,6 +477,33 @@ sap.ui.define([
                 this.getView().byId("button24").setVisible(false);
             },
 
+            //resetTimer function inspired by: https://www.kirupa.com/html5/detecting_if_the_user_is_idle_or_inactive.htm
+            //detect user activity source: https://www.w3schools.com/jsref/dom_obj_event.asp
+            detectInactivity: function() {
+                var inactivityTime;
+                var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+                
+                //reset timer when view is loaded
+                window.onload = resetTimer;
+                //detect user activity and reset the timer if so
+                document.onmousemove = resetTimer;
+                document.onkeypress = resetTimer;
+                document.ontouchmove = resetTimer;
+
+                //routing to main view
+                function mainMenuRouting() {
+                    oRouter.navTo("app");
+                }
+
+                //resets timer after activity is detectet
+                function resetTimer() {
+                    //clears value in inactivityTime variable
+                    clearTimeout(inactivityTime);
+                    //calls mainMenuRouting fuction after 60 seconds (1000ms = 1 sec)
+                    inactivityTime = setTimeout(mainMenuRouting, 60000)
+                }
+            },
+            
             //navigate back to main view
             onBackPress: function(){
                 this.startState();
