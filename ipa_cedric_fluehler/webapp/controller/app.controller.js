@@ -33,7 +33,7 @@ sap.ui.define([
                 }, 1000);
             },
             
-            //function to get Time
+            
             getTime: function(){
                 //create new variable with current time value
                 var today = new Date();

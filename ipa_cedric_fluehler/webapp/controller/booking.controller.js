@@ -23,11 +23,12 @@ sap.ui.define([
                     onBeforeShow: function(evt){
                         //creates batch request so labels can read their values in JSON Model
                         oModel.read("/Club");
+                        //start inactivity timer
+                        //this.detectInactivity();
                     }.bind(this)
-                })
+                });
                 
-                //start inactivity timer
-                this.detectInactivity();
+                
 
                 var that = this
                 //get id of page header

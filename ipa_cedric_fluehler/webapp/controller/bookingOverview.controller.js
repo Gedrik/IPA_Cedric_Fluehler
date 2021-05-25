@@ -16,8 +16,7 @@ sap.ui.define([
 			    //set Model into view
                 this.getView().setModel(oModel);
 
-                //start inactivity timer
-                this.detectInactivity();
+               
 
                 //Read data from service
                 //onInit function was only called once, addEventDelegate + onBeforeShow by Deepak Raj
@@ -25,7 +24,9 @@ sap.ui.define([
                 this.getView().addEventDelegate({
                     onBeforeShow: function(evt){
                         //creates batch request so labels can read their values in JSON Model
-                        oModel.read("/Club");
+                        oModel.read("/Club"); 
+                        //start inactivity timer
+                        //this.detectInactivity();
                     }.bind(this)
                 })
 
@@ -71,6 +72,7 @@ sap.ui.define([
 
             //confirm booking logic
             onConfirmPress: function(){
+                oModel.read("/Club");
                 //get value of preferred zone and quantity of persons
                 var zone_id = this.getView().byId("inputZone").getValue();
                 var intZone = parseInt(zone_id);

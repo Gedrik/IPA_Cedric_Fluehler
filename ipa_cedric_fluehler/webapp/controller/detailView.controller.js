@@ -16,8 +16,14 @@ sap.ui.define([
 			    //set Model into view
                 this.getView().setModel(oModel);
 
-                //start inactivity timer
-                this.detectInactivity();
+                //onInit function was only called once, addEventDelegate + onBeforeShow by Deepak Raj
+                //https://stackoverflow.com/questions/37757002/oninit-onafterrendering-not-being-called-when-returning-back-to-the-page
+                this.getView().addEventDelegate({
+                    onBeforeShow: function(evt){
+                        //start inactivity timer
+                        //this.detectInactivity();
+                    }.bind(this)
+                });
 
                 var that = this
                 //get id of page header
