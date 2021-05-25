@@ -17,7 +17,7 @@
                         <!--Floorplan Container-->
 					    <HBox width="100%" id="hbox0" justifyContent="Center">
 				            <items>
-				                <Image xmlns="sap.m" src="img/floorplan-extended-transparent-bg.png" width="35cm" height="20cm" id="image0"/>
+				                <Image xmlns="sap.m" src="img/floorplan-extended-transparent-bg.png" width="35cm" height="18cm" id="image0"/>
 				            </items>
 				        </HBox>
                     </content>

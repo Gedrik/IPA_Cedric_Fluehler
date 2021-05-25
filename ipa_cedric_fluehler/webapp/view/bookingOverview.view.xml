@@ -7,7 +7,7 @@
 
                         <HBox width="100%" id="hbox1" justifyContent="Center">
 				            <items>
-				                <HBox width="10%" id="hbox4_1620395212744" justifyContent="Center">
+				                <HBox width="15%" id="hbox4_1620395212744" justifyContent="Center">
 				                    <items><Button xmlns="sap.m" text="Back" id="backButton" press="onBackPress" class="backButton" type="Unstyled"/>
 				                    </items>
 				                </HBox>
@@ -50,6 +50,10 @@
 				                </HBox>
 				            </items>
 				        </HBox>
+
+				        <Input xmlns="sap.m" value="{TempDataModel>/Zone}" id="inputZone" visible="false"/>
+
+				        <Input xmlns="sap.m" value="{TempDataModel2>/Quantity}" id="inputQuantity" visible="false"/>
                         
                     </content>
 				</Page>

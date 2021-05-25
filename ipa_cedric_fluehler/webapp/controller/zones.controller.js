@@ -59,10 +59,14 @@ sap.ui.define([
                 var hour = today.getHours();
                 var minute = today.getMinutes(); 
 
-                //sets 0 infront of nubers 0-9 (fixes 10:3 to 10:03)
+                //sets 0 infront of nubers 0-9 (fixes 10:3 to 10:03 and 9:30 to 09:30)
                 if (minute <= 9){
                     minute = "0" + minute
-                } 
+                };
+
+                if (hour <= 9){
+                    hour = "0" + hour
+                }; 
 
                 //seperate hour and minute with a :
                 var time = hour + ":" + minute;
