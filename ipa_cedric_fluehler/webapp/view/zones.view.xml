@@ -15,12 +15,14 @@
 				                <Input xmlns="sap.m" id="zoneInput" visible="false"/>
 				            </items>
 				        </HBox>
+
                         <!--Container for Club plan-->
 					    <HBox width="100%" id="hbox0" justifyContent="Center">
 				            <items>
 				                <Image src="img/floorplan-transparent-bg-half.png" width="30cm" height="5cm" id="image0" class="sap"/>
 				            </items>
 				        </HBox>
+
 					    <HBox width="100%" id="hbox0_1617797198146" justifyContent="SpaceAround">
 				            <items>
                                 
@@ -55,6 +57,7 @@
 				                                <Button xmlns="sap.m" text="Club 5" id="button15" type="Unstyled" class="redButton" press="onZone5Press" visible="false"/>
 				                            </items>
 				                        </HBox>
+
                                         <!--Filter to only get values from Club 5-->
 				                        <HBox width="100%" id="hbox2_1619096188573" justifyContent="SpaceAround" items="{path: '/Club',  filters: [{path: 'clubName',operator: 'EQ',value1: '5'}]}">
 				                            <items>
@@ -64,6 +67,7 @@
 				                        </HBox>
 				                    </items>
 				                </VBox>
+                                
 				                <VBox width="100%" direction="Column" id="vbox6">
 				                    <items>
                                         <HBox width="100%" id="hbox5" justifyContent="SpaceAround">

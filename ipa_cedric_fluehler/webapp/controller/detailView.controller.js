@@ -27,7 +27,6 @@ sap.ui.define([
                 });
 
                 var that = this
-                //get id of page header
                 var timeLabel = this.getView().byId("page");
                 //get value from getTime function
                 var time = this.getTime();
@@ -36,7 +35,6 @@ sap.ui.define([
 
                 //updates the header every second to display correct time 
                 setInterval(function() {
-                    //get value from getTime function
                     var time = that.getTime();
                     //set time value and a title into header
                     timeLabel.setTitle("Club Orientation, " + time);
@@ -45,7 +43,6 @@ sap.ui.define([
 
             //function to get Time
             getTime: function(){
-                //create new variable with current time value
                 var today = new Date();
 
                 //pick hour and minute values
@@ -75,16 +72,15 @@ sap.ui.define([
                 document.onkeypress = this.resetTimer();
                 document.ontouchmove = this.resetTimer();
             },
-            //resets timer after activity is detectet
+
             resetTimer: function(){
-                 //clears value in inactivityTime variable
-                    clearTimeout(inactivityTime);
-                    //calls mainMenuRouting fuction after 60 seconds (1000ms = 1 sec)
-                    //https://www.w3schools.com/jsref/met_win_cleartimeout.asp
-                        inactivityTime = setTimeout(function(){ 
-                        var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-                        oRouter.navTo("app");}.bind(this), 60000);
-					
+                clearTimeout(inactivityTime);
+                //calls mainMenuRouting fuction after 60 seconds (1000ms = 1 sec)
+                //https://www.w3schools.com/jsref/met_win_cleartimeout.asp
+                inactivityTime = setTimeout(function(){ 
+                    var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+                    oRouter.navTo("app");
+                }.bind(this), 60000);
             },
             
             //back navigation to main view

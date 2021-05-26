@@ -32,16 +32,13 @@ sap.ui.define([
                 })
 
                 var that = this
-                //get id of page header
                 var timeLabel = this.getView().byId("page");
-                //get value from getTime function
                 var time = this.getTime();
                 //sets the time value and title into header
                 timeLabel.setTitle("Club Orientation, " + time);
 
                 //updates the header every second to display correct time 
                 setInterval(function() {
-                    //get value from getTime function
                     var time = that.getTime();
                     //set time value and a title into header
                     timeLabel.setTitle("Club Orientation, " + time);
@@ -50,7 +47,6 @@ sap.ui.define([
             
             //function to get Time
             getTime: function(){
-                //create new variable with current time value
                 var today = new Date();
 
                 //pick hour and minute values
@@ -74,14 +70,11 @@ sap.ui.define([
             //confirm booking logic
             onConfirmPress: function(){
                 oModel.read("/Club");
-                //get value of preferred zone and quantity of persons
                 var zone_id = this.getView().byId("inputZone").getValue();
                 var intZone = parseInt(zone_id);
                 var persons = this.getView().byId("inputQuantity").getValue();
 
-
                 var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-
 
                 //Get free places from odata service           
                 var totalFree = oModel.getProperty("/Club("+zone_id+")/currentlyFree");
@@ -120,16 +113,15 @@ sap.ui.define([
                 document.onkeypress = this.resetTimer();
                 document.ontouchmove = this.resetTimer();
             },
-            //resets timer after activity is detectet
+            
             resetTimer: function(){
-                 //clears value in inactivityTime variable
-                    clearTimeout(inactivityTime);
-                    //calls mainMenuRouting fuction after 60 seconds (1000ms = 1 sec)
-                    //https://www.w3schools.com/jsref/met_win_cleartimeout.asp
-                        inactivityTime = setTimeout(function(){ 
-                        var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-                        oRouter.navTo("app");}.bind(this), 60000);
-					
+                clearTimeout(inactivityTime);
+                //calls mainMenuRouting fuction after 60 seconds (1000ms = 1 sec)
+                //https://www.w3schools.com/jsref/met_win_cleartimeout.asp
+                inactivityTime = setTimeout(function(){ 
+                    var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+                    oRouter.navTo("app");
+                }.bind(this), 60000);
             },
 
             //back navigation to booking view

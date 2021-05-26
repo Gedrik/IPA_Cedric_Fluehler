@@ -32,9 +32,7 @@ sap.ui.define([
                 
 
                 var that = this
-                //get id of page header
                 var timeLabel = this.getView().byId("page");
-                //get value from getTime function
                 var time = this.getTime();
                 //sets the time value and title into header
                 timeLabel.setTitle("Club Orientation, " + time);
@@ -50,13 +48,10 @@ sap.ui.define([
             
             //function to get Time
             getTime: function(){
-                //create new variable with current time value
                 var today = new Date();
-
                 //pick hour and minute values
                 var hour = today.getHours();
                 var minute = today.getMinutes(); 
-
 
                 //sets 0 infront of nubers 0-9 (fixes 10:3 to 10:03 and 9:30 to 09:30)
                 if (minute <= 9){
@@ -72,10 +67,8 @@ sap.ui.define([
                 return time;
             },
 
-            //function for 1 person button
             onQuantity1Press: function(){
 
-                //set value for quantity input field
                 this.getView().byId("quantityCache").setValue("1");
 
                 //get value from quantity input field and set value in temporary data model
@@ -86,18 +79,14 @@ sap.ui.define([
                 var tzone = sap.ui.getCore().byId(this.createId("zoneCache")).getValue();
                 this.getView().getModel("TempDataModel").setProperty("/",{ "Zone":tzone} );
 
-                //get value of preferred zone and quantity of persons
                 var zone_id = this.getView().byId("zoneCache").getValue();
                 var intZone = parseInt(zone_id);
                 var persons = this.getView().byId("quantityCache").getValue();
 
-
                 var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
 
-
                 //Get free places from odata service           
-                var totalFree = oModel.getProperty("/Club("+zone_id+")/currentlyFree");
-               //calculate new total free places                   
+                var totalFree = oModel.getProperty("/Club("+zone_id+")/currentlyFree");       
                 var calculatedFree = parseInt(totalFree) - parseInt(persons);
                 
                //safety that club can not be overbooked
@@ -113,7 +102,6 @@ sap.ui.define([
             //function for 2 person button
             onQuantity2Press: function(){
 
-                //set value for quantity input field
                 this.getView().byId("quantityCache").setValue("2");
 
                 //get value from quantity input field and set value in temporary data model
@@ -124,18 +112,14 @@ sap.ui.define([
                 var tzone = sap.ui.getCore().byId(this.createId("zoneCache")).getValue();
                 this.getView().getModel("TempDataModel").setProperty("/",{ "Zone":tzone} );
 
-                //get value of preferred zone and quantity of persons
                 var zone_id = this.getView().byId("zoneCache").getValue();
                 var intZone = parseInt(zone_id);
                 var persons = this.getView().byId("quantityCache").getValue();
 
-
                 var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
 
-
                 //Get free places from odata service           
-                var totalFree = oModel.getProperty("/Club("+zone_id+")/currentlyFree");
-               //calculate new total free places                   
+                var totalFree = oModel.getProperty("/Club("+zone_id+")/currentlyFree");                
                 var calculatedFree = parseInt(totalFree) - parseInt(persons);
                 
                //safety that club can not be overbooked
@@ -151,7 +135,6 @@ sap.ui.define([
             //function for 3 person button
             onQuantity3Press: function(){
 
-                //set value for quantity input field
                 this.getView().byId("quantityCache").setValue("3");
 
                 //get value from quantity input field and set value in temporary data model
@@ -162,19 +145,14 @@ sap.ui.define([
                 var tzone = sap.ui.getCore().byId(this.createId("zoneCache")).getValue();
                 this.getView().getModel("TempDataModel").setProperty("/",{ "Zone":tzone} );
 
-
-                //get value of preferred zone and quantity of persons
                 var zone_id = this.getView().byId("zoneCache").getValue();
                 var intZone = parseInt(zone_id);
                 var persons = this.getView().byId("quantityCache").getValue();
 
-
                 var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
 
-
                 //Get free places from odata service           
-                var totalFree = oModel.getProperty("/Club("+zone_id+")/currentlyFree");
-               //calculate new total free places                   
+                var totalFree = oModel.getProperty("/Club("+zone_id+")/currentlyFree");                
                 var calculatedFree = parseInt(totalFree) - parseInt(persons);
                 
                //safety that club can not be overbooked
@@ -190,7 +168,6 @@ sap.ui.define([
             //function for 4 person button
             onQuantity4Press: function(){
 
-                //set value for quantity input field
                 this.getView().byId("quantityCache").setValue("4");
 
                 //get value from quantity input field and set value in temporary data model
@@ -201,19 +178,14 @@ sap.ui.define([
                 var tzone = sap.ui.getCore().byId(this.createId("zoneCache")).getValue();
                 this.getView().getModel("TempDataModel").setProperty("/",{ "Zone":tzone} );
 
-
-                //get value of preferred zone and quantity of persons
                 var zone_id = this.getView().byId("zoneCache").getValue();
                 var intZone = parseInt(zone_id);
                 var persons = this.getView().byId("quantityCache").getValue();
 
-
                 var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-
 
                 //Get free places from odata service           
                 var totalFree = oModel.getProperty("/Club("+zone_id+")/currentlyFree");
-               //calculate new total free places                   
                 var calculatedFree = parseInt(totalFree) - parseInt(persons);
                 
                //safety that club can not be overbooked
@@ -235,16 +207,15 @@ sap.ui.define([
                 document.onkeypress = this.resetTimer();
                 document.ontouchmove = this.resetTimer();
             },
-            //resets timer after activity is detectet
+            
             resetTimer: function(){
-                 //clears value in inactivityTime variable
-                    clearTimeout(inactivityTime);
-                    //calls mainMenuRouting fuction after 60 seconds (1000ms = 1 sec)
-                    //https://www.w3schools.com/jsref/met_win_cleartimeout.asp
-                        inactivityTime = setTimeout(function(){ 
-                        var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-                        oRouter.navTo("app");}.bind(this), 60000);
-					
+                clearTimeout(inactivityTime);
+                //calls mainMenuRouting fuction after 60 seconds (1000ms = 1 sec)
+                //https://www.w3schools.com/jsref/met_win_cleartimeout.asp
+                inactivityTime = setTimeout(function(){ 
+                    var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+                    oRouter.navTo("app");
+                }.bind(this), 60000);
             },
 
             //back navigation to zones view

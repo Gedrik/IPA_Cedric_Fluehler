@@ -19,7 +19,6 @@ sap.ui.define([
                 var that = this
                 //get id of page header
                 var timeLabel = this.getView().byId("page");
-                //get value from getTime function
                 var time = this.getTime();
                 //sets the time value and title into header
                 timeLabel.setTitle("Club Orientation, " + time);
@@ -35,9 +34,7 @@ sap.ui.define([
             
             
             getTime: function(){
-                //create new variable with current time value
                 var today = new Date();
-
                 //pick hour and minute values
                 var hour = today.getHours();
                 var minute = today.getMinutes(); 

@@ -8,12 +8,14 @@
 			<pages>
                 <Page id="page" title="">
 					<content>
+                    
                         <!--Back Button-->
                         <HBox width="100%" id="hbox0_1619091014839">
 				            <items>
                                 <Button xmlns="sap.m" text="Back" id="button1" type="Unstyled" class="backButton" press="onBackPress"/>
 				            </items>
 				        </HBox>
+
                         <!--Floorplan Container-->
 					    <HBox width="100%" id="hbox0" justifyContent="Center">
 				            <items>
