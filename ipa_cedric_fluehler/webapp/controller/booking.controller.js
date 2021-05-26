@@ -8,6 +8,7 @@ sap.ui.define([
         "use strict";
         var sServiceUrl = "/v2/catalog/";
         var oModel;
+        var inactivityTime;
 
 		return Controller.extend("workspacebookingns.ipacedricfluehler.controller.booking", {
 			onInit: function () {
@@ -24,7 +25,7 @@ sap.ui.define([
                         //creates batch request so labels can read their values in JSON Model
                         oModel.read("/Club");
                         //start inactivity timer
-                        //this.detectInactivity();
+                        this.detectInactivity();
                     }.bind(this)
                 });
                 
@@ -84,7 +85,6 @@ sap.ui.define([
                 //get value from zone input field and set value in temporary data model
                 var tzone = sap.ui.getCore().byId(this.createId("zoneCache")).getValue();
                 this.getView().getModel("TempDataModel").setProperty("/",{ "Zone":tzone} );
-//......................................................
 
                 //get value of preferred zone and quantity of persons
                 var zone_id = this.getView().byId("zoneCache").getValue();
@@ -104,6 +104,7 @@ sap.ui.define([
                 if(calculatedFree >= 0){
                     var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
                     oRouter.navTo("bookingOverview");
+                    clearTimeout(inactivityTime);
                 }else{
                     sap.m.MessageToast.show("There isn't enough space available");
                 } 
@@ -123,9 +124,6 @@ sap.ui.define([
                 var tzone = sap.ui.getCore().byId(this.createId("zoneCache")).getValue();
                 this.getView().getModel("TempDataModel").setProperty("/",{ "Zone":tzone} );
 
-
-                //......................................................
-
                 //get value of preferred zone and quantity of persons
                 var zone_id = this.getView().byId("zoneCache").getValue();
                 var intZone = parseInt(zone_id);
@@ -144,6 +142,7 @@ sap.ui.define([
                 if(calculatedFree >= 0){
                     var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
                     oRouter.navTo("bookingOverview");
+                    clearTimeout(inactivityTime);
                 }else{
                     sap.m.MessageToast.show("There isn't enough space available");
                 }
@@ -163,7 +162,6 @@ sap.ui.define([
                 var tzone = sap.ui.getCore().byId(this.createId("zoneCache")).getValue();
                 this.getView().getModel("TempDataModel").setProperty("/",{ "Zone":tzone} );
 
-                //......................................................
 
                 //get value of preferred zone and quantity of persons
                 var zone_id = this.getView().byId("zoneCache").getValue();
@@ -183,6 +181,7 @@ sap.ui.define([
                 if(calculatedFree >= 0){
                     var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
                     oRouter.navTo("bookingOverview");
+                    clearTimeout(inactivityTime);
                 }else{
                     sap.m.MessageToast.show("There isn't enough space available");
                 }
@@ -202,7 +201,6 @@ sap.ui.define([
                 var tzone = sap.ui.getCore().byId(this.createId("zoneCache")).getValue();
                 this.getView().getModel("TempDataModel").setProperty("/",{ "Zone":tzone} );
 
-                //......................................................
 
                 //get value of preferred zone and quantity of persons
                 var zone_id = this.getView().byId("zoneCache").getValue();
@@ -222,42 +220,38 @@ sap.ui.define([
                 if(calculatedFree >= 0){
                     var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
                     oRouter.navTo("bookingOverview");
+                    clearTimeout(inactivityTime);
                 }else{
                     sap.m.MessageToast.show("There isn't enough space available");
                 }
             },
 
-            //resetTimer function inspired by: https://www.kirupa.com/html5/detecting_if_the_user_is_idle_or_inactive.htm
-            //detect user activity source: https://www.w3schools.com/jsref/dom_obj_event.asp
+             //detect user activity source: https://www.w3schools.com/jsref/dom_obj_event.asp
             detectInactivity: function() {
-                var inactivityTime;
-                var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-                
                 //reset timer when view is loaded
-                window.onload = resetTimer;
+                window.onload = this.resetTimer();
                 //detect user activity and reset the timer if so
-                document.onmousemove = resetTimer;
-                document.onkeypress = resetTimer;
-                document.ontouchmove = resetTimer;
-
-                //routing to main view
-                function mainMenuRouting() {
-                    oRouter.navTo("app");
-                }
-
-                //resets timer after activity is detectet
-                function resetTimer() {
-                    //clears value in inactivityTime variable
+                document.onmousemove = this.resetTimer();
+                document.onkeypress = this.resetTimer();
+                document.ontouchmove = this.resetTimer();
+            },
+            //resets timer after activity is detectet
+            resetTimer: function(){
+                 //clears value in inactivityTime variable
                     clearTimeout(inactivityTime);
                     //calls mainMenuRouting fuction after 60 seconds (1000ms = 1 sec)
-                    inactivityTime = setTimeout(mainMenuRouting, 60000)
-                }
+                    //https://www.w3schools.com/jsref/met_win_cleartimeout.asp
+                        inactivityTime = setTimeout(function(){ 
+                        var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+                        oRouter.navTo("app");}.bind(this), 60000);
+					
             },
 
             //back navigation to zones view
             onBackPress: function(){
                 var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
                 oRouter.navTo("zones");
+                clearTimeout(inactivityTime);
             },
 
 		});

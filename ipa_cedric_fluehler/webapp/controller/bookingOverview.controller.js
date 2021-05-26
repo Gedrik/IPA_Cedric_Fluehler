@@ -8,6 +8,7 @@ sap.ui.define([
         "use strict";
         var sServiceUrl = "/v2/catalog/";
         var oModel;
+        var inactivityTime;
 
 		return Controller.extend("workspacebookingns.ipacedricfluehler.controller.bookingOverview", {
 			onInit: function () {
@@ -26,7 +27,7 @@ sap.ui.define([
                         //creates batch request so labels can read their values in JSON Model
                         oModel.read("/Club"); 
                         //start inactivity timer
-                        //this.detectInactivity();
+                        this.detectInactivity();
                     }.bind(this)
                 })
 
@@ -97,6 +98,7 @@ sap.ui.define([
 					success: function () {
                         var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
                         oRouter.navTo("app");
+                        clearTimeout(inactivityTime);
                         setTimeout(function(){ sap.m.MessageToast.show("Booking Successful"); }, 500);
 					}.bind(this),
 					error: function () {
@@ -109,35 +111,30 @@ sap.ui.define([
                 } 
             },
 
-            //resetTimer function inspired by: https://www.kirupa.com/html5/detecting_if_the_user_is_idle_or_inactive.htm
-            //detect user activity source: https://www.w3schools.com/jsref/dom_obj_event.asp
+             //detect user activity source: https://www.w3schools.com/jsref/dom_obj_event.asp
             detectInactivity: function() {
-                var inactivityTime;
-                var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-                
                 //reset timer when view is loaded
-                window.onload = resetTimer;
+                window.onload = this.resetTimer();
                 //detect user activity and reset the timer if so
-                document.onmousemove = resetTimer;
-                document.onkeypress = resetTimer;
-                document.ontouchmove = resetTimer;
-
-                //routing to main view
-                function mainMenuRouting() {
-                    oRouter.navTo("app");
-                }
-
-                //resets timer after activity is detectet
-                function resetTimer() {
-                    //clears value in inactivityTime variable
+                document.onmousemove = this.resetTimer();
+                document.onkeypress = this.resetTimer();
+                document.ontouchmove = this.resetTimer();
+            },
+            //resets timer after activity is detectet
+            resetTimer: function(){
+                 //clears value in inactivityTime variable
                     clearTimeout(inactivityTime);
                     //calls mainMenuRouting fuction after 60 seconds (1000ms = 1 sec)
-                    inactivityTime = setTimeout(mainMenuRouting, 60000)
-                }
+                    //https://www.w3schools.com/jsref/met_win_cleartimeout.asp
+                        inactivityTime = setTimeout(function(){ 
+                        var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+                        oRouter.navTo("app");}.bind(this), 60000);
+					
             },
 
             //back navigation to booking view
             onBackPress: function(){
+                clearTimeout(inactivityTime);
                 var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
                 oRouter.navTo("booking");
             }

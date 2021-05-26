@@ -8,6 +8,7 @@ sap.ui.define([
         "use strict";
         var sServiceUrl = "/v2/catalog/";
         var oModel;
+        var inactivityTime;
 
 		return Controller.extend("workspacebookingns.ipacedricfluehler.controller.zones", {
 			onInit: function () {
@@ -16,13 +17,14 @@ sap.ui.define([
 			    //set Model into view
                 this.getView().setModel(oModel);
 
-                //start inactivity timer
-                this.detectInactivity();
+                
 
                 //onInit function was only called once, addEventDelegate + onBeforeShow by Deepak Raj
                 //https://stackoverflow.com/questions/37757002/oninit-onafterrendering-not-being-called-when-returning-back-to-the-page
                 this.getView().addEventDelegate({
                     onBeforeShow: function(evt){
+                        //start inactivity timer
+                        this.detectInactivity();
                         //creates batch request so labels can read their values in JSON Model
                         oModel.read("/Club",{
                             //calls button color color change function if successful
@@ -354,6 +356,8 @@ sap.ui.define([
                 //navigate to booking view
                 var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
                 oRouter.navTo("booking");
+
+                clearTimeout(inactivityTime);
             },
 
             //logic when club 2 button is pressed
@@ -368,6 +372,8 @@ sap.ui.define([
                 //navigate to booking view
                 var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
                 oRouter.navTo("booking");
+
+                clearTimeout(inactivityTime);
             },
 
             //logic when club 3 button is pressed
@@ -382,6 +388,8 @@ sap.ui.define([
                 //navigate to booking view
                 var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
                 oRouter.navTo("booking");
+
+                clearTimeout(inactivityTime);
             },
 
             //logic when club 4 button is pressed
@@ -396,6 +404,8 @@ sap.ui.define([
                 //navigate to booking view
                 var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
                 oRouter.navTo("booking");
+
+                clearTimeout(inactivityTime);
             },
 
             //logic when club 5 button is pressed
@@ -410,6 +420,8 @@ sap.ui.define([
                 //navigate to booking view
                 var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
                 oRouter.navTo("booking");
+
+                clearTimeout(inactivityTime);
             },
 
             //logic when club 6 button is pressed
@@ -424,6 +436,8 @@ sap.ui.define([
                 //navigate to booking view
                 var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
                 oRouter.navTo("booking");
+
+                clearTimeout(inactivityTime);
             },
 
             //logic when club 7 button is pressed
@@ -438,6 +452,8 @@ sap.ui.define([
                 //navigate to booking view
                 var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
                 oRouter.navTo("booking");
+
+                clearTimeout(inactivityTime);
             },
 
             //logic when club 8 button is pressed
@@ -452,6 +468,8 @@ sap.ui.define([
                 //navigate to booking view
                 var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
                 oRouter.navTo("booking");
+
+                clearTimeout(inactivityTime);
             },
 
             startState: function(){
@@ -481,35 +499,31 @@ sap.ui.define([
                 this.getView().byId("button24").setVisible(false);
             },
 
-            //resetTimer function inspired by: https://www.kirupa.com/html5/detecting_if_the_user_is_idle_or_inactive.htm
             //detect user activity source: https://www.w3schools.com/jsref/dom_obj_event.asp
             detectInactivity: function() {
-                var inactivityTime;
-                var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-                
                 //reset timer when view is loaded
-                window.onload = resetTimer;
+                window.onload = this.resetTimer();
                 //detect user activity and reset the timer if so
-                document.onmousemove = resetTimer;
-                document.onkeypress = resetTimer;
-                document.ontouchmove = resetTimer;
-
-                //routing to main view
-                function mainMenuRouting() {
-                    oRouter.navTo("app");
-                }
-
-                //resets timer after activity is detectet
-                function resetTimer() {
-                    //clears value in inactivityTime variable
+                document.onmousemove = this.resetTimer();
+                document.onkeypress = this.resetTimer();
+                document.ontouchmove = this.resetTimer();
+            },
+            //resets timer after activity is detectet
+            resetTimer: function(){
+                 //clears value in inactivityTime variable
                     clearTimeout(inactivityTime);
                     //calls mainMenuRouting fuction after 60 seconds (1000ms = 1 sec)
-                    inactivityTime = setTimeout(mainMenuRouting, 60000)
-                }
+                    //https://www.w3schools.com/jsref/met_win_cleartimeout.asp
+                        inactivityTime = setTimeout(function(){ 
+                        var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+                        oRouter.navTo("app");}.bind(this), 60000);
+					
             },
-            
+
+
             //navigate back to main view
             onBackPress: function(){
+                clearTimeout(inactivityTime);
                 this.startState();
                 var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
                 oRouter.navTo("app");
