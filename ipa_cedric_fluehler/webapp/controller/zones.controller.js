@@ -503,11 +503,12 @@ sap.ui.define([
             //detect user activity source: https://www.w3schools.com/jsref/dom_obj_event.asp
             detectInactivity: function() {
                 //reset timer when view is loaded
-                window.onload = this.resetTimer();
+                window.onload = function(){this.resetTimer();}.bind(this);
                 //detect user activity and reset the timer if so
-                document.onmousemove = this.resetTimer();
-                document.onkeypress = this.resetTimer();
-                document.ontouchmove = this.resetTimer();
+                document.onclick = function(){this.resetTimer();}.bind(this);
+                document.ontouchmove = function(){this.resetTimer();}.bind(this);
+                document.onkeypress = function(){this.resetTimer();}.bind(this);
+                document.onmousemove = function(){this.resetTimer();}.bind(this);
             },
             
             resetTimer: function(){
